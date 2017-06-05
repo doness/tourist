@@ -1,0 +1,28 @@
+{
+  "name": "src",
+  "authors": [
+    "Robophil <oghenerobo@gmail.com>"
+  ],
+  "description": "admin theme",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "tether": "latest",
+    "jquery": "^3.0.0",
+    "fontawesome": "latest",
+    "simple-line-icons": "latest",
+    "pace": "latest",
+    "chart.js": "^2.3.0",
+    "jquery.countdown": "^2.2.0"
+  },
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

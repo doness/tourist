@@ -1,0 +1,100 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="clearfix">
+      <img alt="..." class="img-thumbnail restaurant-details-img float-left" *ngIf="suggestedRestaurants.photos" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=200&photoreference={{suggestedRestaurants.photos&&suggestedRestaurants.photos[0].photo_reference}}&key=AIzaSyBkGAsbPtAn9CNeuWEJh1T5kNgcE1jDD4A"
+      />
+      <div class="d-inline-block ml-4 restaurant-details-info">
+        <h1 class="display-4">{{suggestedRestaurants.name}}</h1>
+        <p class="lead">{{suggestedRestaurants.formatted_address}}</p>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href="tel:{{suggestedRestaurants.international_phone_number}}" class="btn btn-secondary"><i class="glyphicon glyphicon-phone"></i> Phone</a>
+            <a href="https://search.google.com/local/writereview?placeid={{suggestedRestaurants.place_id}}" target="_blank" class="btn btn-secondary"><i class="glyphicon glyphicon-comment"></i> Review</a>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <a href="{{suggestedRestaurants.url}}" target="_blank" class="btn btn-secondary"><i class="glyphicon glyphicon-map-marker"></i> Map</a>
+          </div>
+        </div>
+        <!--<pre>{{ suggestedRestaurants | json }}</pre>-->
+      </div>
+      <div class="float-right">
+        <h3>
+          <span class="badge badge-default">{{suggestedRestaurants.rating}}</span>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="details" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <form>
+                <div class="card-block">
+                  <div class="form-group">
+                    <label for="exampleTextarea" class="h5">Review this place on google</label>
+                    <p class="text-info">You will be redirected to google to drop your reviews and rating.</p>
+                  </div>
+                </div>
+                <div class="card-footer text-muted text-right">
+                  <a href="https://search.google.com/local/writereview?placeid={{suggestedRestaurants.place_id}}" target="_blank" class="btn btn-primary">Review</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--<div class="row">
+        <div class="col restaurants-block">
+          <h3 class="text-center">Locate a restaurant near you.</h3>
+        </div>
+      </div>-->
+        <div class="row">
+          <div class="col restaurants-block">
+            <div class="card mb-3" *ngFor="let restaurant of suggestedRestaurants.reviews; let i = index">
+              <a href="#">
+                <img class="card-img-top img-fluid" *ngIf="restaurant.photos" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{restaurant.photos&&restaurant.photos[0].photo_reference}}&key=AIzaSyBkGAsbPtAn9CNeuWEJh1T5kNgcE1jDD4A"
+                  alt="Card image cap"/>
+                <div class="card-block">
+                  <div class="clearfix">
+                  <b class="card-title text-uppercase">{{restaurant.author_name}}</b>
+                  <span class="pull-right">{{restaurant.relative_time_description}}</span>
+                  </div>
+                  <p class="card-text">{{restaurant.text}}</p>
+                  <div class="rating" *ngIf="restaurant.rating">
+                    <rating [(ngModel)]="restaurant.rating" [max]="max" [readonly]="isReadOnly" ngDefaultControl></rating>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card" *ngIf="progressbarLoading">
+              <div class="card-block">
+                <div class="timeline-wrapper">
+                  <div class="timeline-item">
+                    <div class="animated-background">
+                      <div class="background-masker header-top"></div>
+                      <div class="background-masker header-left"></div>
+                      <div class="background-masker header-right"></div>
+                      <div class="background-masker header-bottom"></div>
+                      <div class="background-masker subheader-left"></div>
+                      <div class="background-masker subheader-right"></div>
+                      <div class="background-masker subheader-bottom"></div>
+                      <div class="background-masker content-top"></div>
+                      <div class="background-masker content-first-end"></div>
+                      <div class="background-masker content-second-line"></div>
+                      <div class="background-masker content-second-end"></div>
+                      <div class="background-masker content-third-line"></div>
+                      <div class="background-masker content-third-end"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

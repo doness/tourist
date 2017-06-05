@@ -1,0 +1,54 @@
+<div class="page">
+    <header>
+        <nav class="navbar navbar-toggleable-md sticky-top bg-faded">
+            <div class="container">
+                <a class="navbar-brand" [routerLink]="['/']"><img src="assets/img/logo.png" width="auto" height="58px"/></a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                        </li>
+                    </ul>
+                    <form class="form-inline search-form">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Location, Restaurant, or Cuisine...">
+                                <span class="input-group-btn">
+              <button class="btn btn-pure" type="button">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="main">
+        <router-outlet></router-outlet>
+    </div>
+    <footer>
+        <nav class="navbar fixed-bottom navbar-light bg-faded">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="copyright text-muted text-left">
+                            © 2017 Tourism. All Rights Reserved.
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <ul class="nav text-muted float-md-right">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Terms</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+</div>
+<app-loading></app-loading>

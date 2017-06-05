@@ -1,0 +1,85 @@
+.btn-spin-loading {
+	cursor: default;
+	opacity:.6 !important;
+	color: transparent !important;
+	pointer-events:none;
+	position:relative;
+}
+.btn-spin-loading:after{
+	content:'';
+	display: block;
+	width: 1.2em;
+	height: 1.2em;
+	position:absolute;
+	left: 50%;
+	top:50%;
+	margin-left: -.6em;
+	margin-top: -.6em;
+	border-width:.2em;
+	border-style:solid;
+	border-color:#fff rgba(0,0,0,.1) rgba(0,0,0,.2) rgba(0,0,0,.2);
+	border-radius:100rem;
+	-webkit-animation: loading-spin .6s infinite linear;
+	animation: loading-spin .6s infinite linear;
+	box-shadow: 0 0 0 1px transparent;
+}
+body > .bg-loading {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+}
+.bg-loading {
+	cursor: default;
+	pointer-events:none;
+	position:relative;
+}
+.bg-loading:before{
+	content:'';
+	display: block;
+	position:absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color:#fff;
+	z-index:100;
+}
+.bg-loading:after {
+	content:'';
+	display: block;
+	width: 2em;
+	height: 2em;
+	position:absolute;
+	left: 50%;
+	top:50%;
+	margin-left: -1.5em;
+	margin-top: -1.5em;
+	border-width:.2em;
+	border-style:solid;
+	border-color:#fff rgba(0,0,0,.1) rgba(0,0,0,.15) rgba(0,0,0,.2);
+	border-radius:100rem;
+	-webkit-animation: loading-spin .6s infinite linear;
+	animation: loading-spin .6s infinite linear;
+	z-index:101;
+	box-shadow: 0 0 0 1px transparent;
+}
+.bg-loading > #loading-text{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #292b2c;
+    z-index: 110;
+}
+@-webkit-keyframes loading-spin{
+	0% {transform:rotate(0degb)}
+	100% {transform:rotate(360deg)}
+}
+@keyframes loading-spin{
+	0% {transform:rotate(0degb)}
+	100% {transform:rotate(360deg)}
+}
