@@ -9,8 +9,7 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 module.exports = {
     restaurants: function (req, res) {
         req.validate({
-            location: "string",
-            radius: "string"
+            where: 'json'
         });
         var reqQuery = actionUtil.parseCriteria(req);
         var unirest = require('unirest');
@@ -33,7 +32,7 @@ module.exports = {
     },
     details: function (req, res) {
         req.validate({
-            id: "string"
+            id: 'string'
         });
         var id = actionUtil.parsePk(req);
         var unirest = require('unirest');
@@ -52,6 +51,29 @@ module.exports = {
                 }
                 return res.forbidden(response);
             });
-    }
+    },
+    autosuggest: function (req, res) {
+        req.validate({
+            where: 'json'
+        });
+        var reqQuery = actionUtil.parseCriteria(req);
+        var unirest = require('unirest');
+        unirest.get('https://maps.googleapis.com/maps/api/place/autocomplete/json?types=establishment&key=AIzaSyBkGAsbPtAn9CNeuWEJh1T5kNgcE1jDD4A')
+            .headers({ 'Content-Type': 'application/json' })
+            .query(reqQuery)
+            .send()
+            .as.json(function (response) {
+                if (response.error) {
+                    if (response.body) {
+                        return res.serverError(response.body.message);
+                    }
+                    return res.serverError(response);
+                }
+                if (response.body && response.body.predictions) {
+                    return res.ok(response.body.predictions);
+                }
+                return res.forbidden(response);
+            });
+    },
 };
 
