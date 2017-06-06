@@ -1,7 +1,6 @@
 import { Component, HostBinding, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
-import { UserModel } from "app/model/user.model";
-import { SocketIOConfig, SocketIOResponse } from "angular2-sails-socketio";
+import { SocketIOConfig, SocketIOResponse } from 'angular2-sails-socketio';
 
 @Component({
   styleUrls: [
@@ -23,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
 }

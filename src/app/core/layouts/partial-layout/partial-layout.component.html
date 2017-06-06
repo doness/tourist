@@ -11,10 +11,16 @@
                     <form class="form-inline search-form">
                         <div class="col-lg-12">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Location, Restaurant, or Cuisine...">
+                                <input type="text" class="form-control" name="search" placeholder="Location, Restaurant, or Cuisine..." [(ngModel)]="searchInput"
+                                    [typeahead]="dataSource" (typeaheadLoading)="changeTypeaheadLoading($event)" (typeaheadOnBlur)="typeaheadOnSelect($event)"
+                                    (typeaheadNoResults)="changeTypeaheadNoResults($event)" (typeaheadOnSelect)="typeaheadOnSelect($event)"
+                                    typeaheadMinLength="2" typeaheadOptionsLimit="7" typeaheadOptionField="description" container="body"/>
                                 <span class="input-group-btn">
-              <button class="btn btn-pure" type="button">
+              <button class="btn btn-pure" type="button" *ngIf="searchInput==undefined || searchInput.length==0">
                 <i class="glyphicon glyphicon-search"></i>
+              </button>
+              <button class="btn btn-pure" type="button" *ngIf="searchInput && searchInput.length>0" (click)="resetSearchInput()">
+                <i class="glyphicon glyphicon-remove"></i>
               </button>
             </span>
                             </div>

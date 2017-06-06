@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FullLayoutComponent } from "app/core/layouts/full-layout/full-layout.component";
-import { PartialLayoutComponent } from "app/core/layouts/partial-layout/partial-layout.component";
+import { FullLayoutComponent } from 'app/core/layouts/full-layout/full-layout.component';
+import { PartialLayoutComponent } from 'app/core/layouts/partial-layout/partial-layout.component';
 
-//Layouts
-
-
+// Layouts
 
 export const routes: Routes = [
   {

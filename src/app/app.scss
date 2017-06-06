@@ -38,6 +38,13 @@
             color: #ccc;
             outline: none;
         }
+        .dropdown{
+            z-index: 999900 !important;
+            &.show{
+                display: block !important;
+                position:fixed !important;
+            }
+        }
     }
 }
 
@@ -56,5 +63,31 @@
     &:focus {
         outline: 0 !important;
         box-shadow: none !important;
+    }
+}
+
+typeahead-container{
+    .dropdown-menu{
+        display: block !important;
+        z-index: 1031;
+        min-width: 548px;
+        >li {
+            >a {
+                display: block;
+                width: 100%;
+                padding: 0.8rem;
+                text-decoration: none;
+                color: #292b2c;
+                &:hover {
+                    background: #eceeef;
+                    color: #292b2c;
+                }
+                span {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+        }
     }
 }

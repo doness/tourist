@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewEncapsulation, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { PlacesService } from "app/services/places.service";
-import { PlacesModel } from "app/model/places.model";
-import { SocketIOConfig, SocketIOQuery } from "angular2-sails-socketio";
-import { GeolocationService } from "app/core/utility/location.service";
-import { Subscription } from "rxjs/Rx";
+import { PlacesService } from 'app/services/places.service';
+import { PlacesModel } from 'app/model/places.model';
+import { SocketIOConfig, SocketIOQuery } from 'angular2-sails-socketio';
+import { GeolocationService } from 'app/core/utility/location.service';
+import { Subscription } from 'rxjs/Rx';
 
 
 @Component({
@@ -18,10 +18,10 @@ import { Subscription } from "rxjs/Rx";
 
 export class DetailsComponent implements OnInit, AfterViewInit, OnDestroy {
   private suggestedRestaurants: Array<PlacesModel> = [];
-  private rate: number = 4;
-  private max: number = 5;
-  private isReadOnly: boolean = true;
-  private progressbarLoading: boolean = false;
+  private rate = 4;
+  private max = 5;
+  private isReadOnly = true;
+  private progressbarLoading = false;
   private paramsSubscription: Subscription;
   constructor(
     private router: Router,
@@ -42,7 +42,7 @@ export class DetailsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.progressbarLoading = true;
     this.paramsSubscription = this.route.params.subscribe(params => {
       if (params['id']) {
-        let placesService = new PlacesService(this.socketIOConfig);
+        const placesService = new PlacesService(this.socketIOConfig);
         placesService.getRestaurantDetails(params['id']).subscribe((restaurants) => {
           this.progressbarLoading = false;
           this.suggestedRestaurants = restaurants;

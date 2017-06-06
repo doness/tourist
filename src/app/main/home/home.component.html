@@ -7,13 +7,17 @@
   </div>
   <section id="home" class="content">
     <div class="container">
-      <!--<div class="row">
-        <div class="col restaurants-block">
-          <h3 class="text-center">Locate a restaurant near you.</h3>
-        </div>
-      </div>-->
       <div class="row">
-        <div class="col restaurants-block">
+        <div class="col" *ngIf="locationSettingsError">
+          <h1>Unable to determine your location</h1>
+          <p class="text-hint">If your laptop or phone displays this error message, please check that you have internet access and your location services setting is ON.</p>
+          <ol>
+            <li>Connect your device to the internet.</li>
+            <li>Head to Settings > Location.</li>
+            <li>Make sure Mode is set to High Accuracy.</li>
+          </ol>
+        </div>
+        <div class="col restaurants-block" *ngIf="!locationSettingsError">
           <div class="card-columns">
             <div class="card" *ngFor="let restaurant of suggestedRestaurants; let i = index">
               <a [routerLink]="['/details', restaurant.place_id]">

@@ -5,12 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './full-layout.component.html'
 })
 export class FullLayoutComponent implements OnInit {
-  
-  constructor() {}
-
-  public title: string = "";
-  public disabled: boolean = false;
+  public title = '';
+  public disabled = false;
   public status: { isopen: boolean } = { isopen: false };
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
 
   public toggled(open: boolean): void {
     console.log('Dropdown is now: ', open);
@@ -20,10 +23,6 @@ export class FullLayoutComponent implements OnInit {
     $event.preventDefault();
     $event.stopPropagation();
     this.status.isopen = !this.status.isopen;
-  }
-
-  ngOnInit(): void {
-    
   }
 
 }

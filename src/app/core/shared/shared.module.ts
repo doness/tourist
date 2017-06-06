@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { BrowserModule } from "@angular/platform-browser";
-import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
@@ -9,10 +9,10 @@ import { RouterModule } from "@angular/router";
         CommonModule,
     ],
     declarations: [
-        
+
     ],
     exports: [
-        
+
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

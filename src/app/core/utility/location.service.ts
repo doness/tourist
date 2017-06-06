@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from "@angular/http";
-import { Observable } from "rxjs/Rx";
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class GeolocationService {
@@ -11,11 +11,10 @@ export class GeolocationService {
             if (navigator && navigator.geolocation) {
                 navigator.geolocation.watchPosition((position) => {
                     observer.next(position);
-                },(error)=>{
-                    observer.error("Unsupported Browser");
+                }, (error) => {
+                    observer.error('Unsupported Browser');
                 });
             }
         });
     }
-
 }

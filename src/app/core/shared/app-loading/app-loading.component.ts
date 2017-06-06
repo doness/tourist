@@ -13,8 +13,8 @@ declare var $;
 })
 
 export class AppLoadingComponent {
-    @HostBinding('class.show') 
-    private progressbarLoading: boolean = false;
+    @HostBinding('class.show')
+    private progressbarLoading = false;
     constructor(
         private router: Router
     ) {
