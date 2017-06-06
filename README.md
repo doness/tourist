@@ -62,7 +62,7 @@ serverIpAddress:8081/api/hello
 ```
 
 ### Note:
-Sails is lifted on port 1337 by default during development. I have changed the port to `8081` for production so you have to change the url and port in `src/app/app.config.ts` for your application to communicate with the backend api service.
+Sails is lifted on port 1337 by default during development. I have changed the port to `8081` for production so you have to change the url and port in `src/app/app.config.ts` for the angular application to communicate with the backend api service.
 
 
 ## Tests
