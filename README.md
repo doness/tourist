@@ -17,6 +17,10 @@ From root, Development only (Angular)
 ```
 ng serve
 ```
+Verify the deployment by navigating to your localhost in your preferred browser.
+```sh
+localhost:4200
+```
 
 From root, Production only (Angular) [Before you build, change the url in `src/app/app.config.ts` to suite your server configuration]
 ```
@@ -34,14 +38,31 @@ From server, Development only (Sails)
 ```
 sails lift
 ```
+Verify the deployment by navigating to your localhost in your preferred browser.
+```sh
+localhost:1337/api/hello
+```
+You should get a mesage as below
+```json
+{
+  "code": "E_NOT_FOUND",
+  "message": "The requested resource could not be found but may be available again in the future",
+  "data": {}
+}
+```
 
 From server, Production only (Sails)
 ```
 forever start app.js --prod
 ```
 
+The backend api service would be running at the location below.
+```sh
+serverIpAddress:8081/api/hello
+```
+
 ### Note:
-Sails is lifted on port 1337 by default during development. I have changed the port to 8081 for production so you have to change the url and port in src/app/app.config.ts for your application to communicate with the backend api service.
+Sails is lifted on port 1337 by default during development. I have changed the port to `8081` for production so you have to change the url and port in `src/app/app.config.ts` for your application to communicate with the backend api service.
 
 
 ## Tests
